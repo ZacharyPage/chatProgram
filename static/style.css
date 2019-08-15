@@ -1,0 +1,83 @@
+body {
+    background-color:#fefef4;
+    background-image: url("images/wallpaper.jpg");
+    background-position: 490px -12px;
+    background-repeat: no-repeat;
+    
+}
+.username {
+    position: fixed;
+    bottom:19.5%;
+    right:42%;
+    width:400px;
+    opacity: 1;
+    background-color:#d0eae9;
+}
+.message {
+    position: fixed;
+    text-align: center;
+    bottom:5%;
+    right:42%;
+    height:100px;
+    width:400px;
+    opacity: 1;
+    font-size: 20px;
+    background-color:#fffde4;
+}
+.sndbutton {
+    position: fixed;
+    bottom:1.5%;
+    right:50%;
+    height:30px;
+    width:200px;
+    color: #681429;
+    background-color:bisque;
+    opacity: 1;
+    font-size: 15px;
+    font-weight: bold;
+}
+.place_holder {
+    position: fixed;
+    top:30%;
+    left:40%;
+    color: #3c96cc9e;
+    font-size: 50px
+}
+.message_holder{
+    color:#2c5ff0;
+    font-size: 30px;
+    font-family: Verdana;
+}
+.LI-profile-badge {
+    position: fixed;
+    bottom:.5%;
+    right:.5%
+}
+ .creation {
+     position:fixed;
+     font-size: 20px;
+     color:#435b68;
+     bottom:0;
+     height: 1.2%;
+     right:1%;
+ }
+ .fname {
+     color: #3d939394;
+ }
+ .lname {
+     color: #4794c6;
+ }
+.name {
+    position: fixed;
+    font-size:25px;
+    bottom:20%;
+    left:36.8%;
+    opacity: 0.6;
+}
+.mess {
+    position: fixed;
+    font-size:25px;
+    bottom:14.4%;
+    left:36.8%;
+    opacity: 0.6;
+}

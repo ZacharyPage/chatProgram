@@ -1,0 +1,81 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+<!--    Links in header just lead to resources that are being used in the program i.e. (Style Sheet, JSON file, Images)-->
+    <title>Intro Network | Chat Application</title>
+    <link rel="stylesheet" href="../static/style.css" type="text/css" media="screen" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../static/favicon/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+  </head>
+
+
+<!--  Default Styling for HTML Web-Page when nothing has happened yet-->
+  <body>
+    <h2 class="creation">Created By:
+      <span class="fname">Zachary</span>
+      <span class="lname">Page</span>
+    </h2>
+    <h1 class="name">Name:</h1>
+    <h1 class="mess">Messages:</h1>
+    <h3 class="place_holder">
+      No messages yet..
+    </h3>
+    <div class="message_holder">
+    </div>
+
+
+<!--    Just the form for the user to enter their desired username and message-->
+    <form action="" method="POST">
+      <div>
+        <label>
+          <input type="text" class="username" placeholder="Name"/>
+        </label>
+      </div>
+      <label>
+        <input type="text" class="message" placeholder="Messages"/>
+      </label>
+      <input type="submit" class="sndbutton"/>
+    </form>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+    <script type="text/javascript">
+
+      //document.domain is the users ip and the location.port represents the default port of 5000
+      let socket = io.connect('http://' + document.domain + ':' + location.port);
+
+      //Connects to the socket and emits the 'my event' function from main.py
+      socket.on( 'connect', function() {
+        socket.emit('my event', 'User Connected');
+
+        //When the form button 'submit' is pressed it will grab the username and message from the form
+        //and emit it to the console
+        let form = $('form').on('submit', function (x) {
+          x.preventDefault();
+        let user_name = $( 'input.username' ).val();
+        let user_input = $( 'input.message' ).val();
+        socket.emit( 'my event', {
+          user_name : user_name,
+          message : user_input
+        });
+        $( 'input.message' ).val( '' );
+      })
+    });
+
+
+      //Prints the message to the screen after it grabs it from the response function
+      socket.on( 'response', function( msg ) {
+        console.log( msg );
+        if( typeof msg.user_name !== 'undefined' ) {
+          $( 'div.message_holder' ).append( '<div><b style="color: #2f3334">'+msg.user_name+':</b> '+msg.message+'</div>')
+        }
+      })
+    </script>
+
+  </body>
+  </html>
