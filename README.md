@@ -5,14 +5,17 @@
 
 
 - [Features](#features)
-- [Documentation](#documentation)
+- [Examples](#examples)
 - [Support](#support)
 
 ## Features
 
 - Allows multiple clients to connect to the server and chat away using names of their own choosing.
 
-## Documentation 
+## Examples 
+**Example of two clients**
+
+![](images/chatprogram.png)
 
 ## Support
 
